@@ -54,6 +54,10 @@ IF lv_result THEN
 	IF LENGTH(v_remtoken) THEN
 		CALL user_remember (lv_userID, v_remtoken);
 	END IF;
+
+UPDATE user
+SET User_Online = 1
+WHERE User_ID = v_userID
 	
 	SET ret_result = CONCAT('welcome back *', lv_username, '*.');
 END IF;
