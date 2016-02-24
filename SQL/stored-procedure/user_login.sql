@@ -43,7 +43,7 @@ ELSE
 			SET ret_result = CONCAT('sorry *', lv_username, '*, but your account has not been activated yet.');
 		WHEN 'banned' OR 'suspended' THEN
 			SET lv_result = false;
-			SET ret_result = CONCAT('sorry *', lv_username, '*, but your account is currently *', lv_userstat);
+			SET ret_result = CONCAT('sorry *', lv_username, '*, but your account is currently *', lv_userstat, '*.');
 	END CASE;
 END IF;
 
