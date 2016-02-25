@@ -33,7 +33,7 @@ BEGIN
 
 	IF lv_userID IS NULL THEN
 		SET lv_result = false;
-		SET ret_result = 'That username and password combination don't seem to match.';
+		SET ret_result = 'That username and password combination don\'t seem to match.';
 	ELSE
 		CASE v_userstatus
 			WHEN 'register' THEN
