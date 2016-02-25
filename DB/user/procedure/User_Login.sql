@@ -13,6 +13,11 @@ BEGIN
 	DECLARE lv_userstat VARCHAR(10);
 	DECLARE lv_logintype VARCHAR(6) DEFAULT 'manual';
 	
+	SET v_username = TRIM(v_username);
+	SET v_userpass = SHA(TRIM(v_userpass), 512);
+	SET v_remtoken = TRIM(v_remtoken);
+	SET v_IP = TRIM(UPPER(v_IP));
+
 	IF v_username IS NULL THEN
 		SET lv_logintype = 'auto';
 		
@@ -28,7 +33,7 @@ BEGIN
 		INTO lv_userID, lv_username, lv_userrole, lv_userstat
 		FROM user
 		WHERE user.User_Name = v_username
-		AND user.User_pass = SHA(v_userpass, 512);
+		AND user.User_pass = v_userpass;
 	END IF;
 
 	IF lv_userID IS NULL THEN
