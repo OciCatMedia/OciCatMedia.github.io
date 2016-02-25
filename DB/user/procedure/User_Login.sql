@@ -50,7 +50,7 @@ BEGIN
 		VALUES (UNIX_TIMESTAMP(NOW()), lv_logintype, v_userIP, v_userID)
 		
 		IF LENGTH(v_remtoken) THEN
-			CALL user_remember (lv_userID, v_remtoken);
+			CALL User_Remember (lv_userID, v_remtoken);
 		END IF;
 		
 		SET ret_result = CONCAT('welcome back *', lv_username, '*.');
