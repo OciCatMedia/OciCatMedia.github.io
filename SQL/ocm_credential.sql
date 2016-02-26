@@ -1,11 +1,11 @@
-CREATE DATABASE IF NOT EXISTS ocm_credential DEFAULT CHARACTER SET utf8;
+CREATE DATABASE IF NOT EXISTS ocm_credential DEFAULT CHARACTER SET utf8 DEFAULT COLLATION utf8_general_ci;
 
-CREATE TABLE ocm_credential.user (
+CREATE TABLE ocm_credential.cred_user (
 	User_ID INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 	User_Name VARCHAR(45) NOT NULL,
 	User_Pass CHAR(128) NOT NULL,
 	User_Role ENUM('member','admin','webmaster') NOT NULL DEFAULT 'member',
-	User_Status ENUM('register','active','disabled','deleted') NOT NULL DEFAULT 'register',
+	User_Status ENUM('register','active','disabled','deleted') NOT NULL DEFAULT 'active',
 	User_Remember VARCHAR(128) DEFAULT NULL,
 	PRIMARY KEY (User_ID),
 	UNIQUE KEY User_Name_UNIQUE (User_Name)
