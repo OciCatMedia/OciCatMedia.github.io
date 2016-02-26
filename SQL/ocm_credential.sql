@@ -8,16 +8,16 @@ CREATE TABLE ocm_credential.cred_user (
 	User_Status ENUM('register','active','disabled','deleted') NOT NULL DEFAULT 'active',
 	User_Remember VARCHAR(128) DEFAULT NULL,
 	PRIMARY KEY (User_ID),
-	UNIQUE KEY User_Name_UNIQUE (User_Name)
+	UNIQUE KEY UN_User_Name (User_Name)
 ) ENGINE=InnoDB;
 
-CREATE TABLE ocm_credential.user_email (
-	Email_ID INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-	Email_Address VARCHAR(200) NOT NULL,
-	Email_Rank TINYINT(1) UNSIGNED NOT NULL DEFAULT 0,
-	Email_Epoc INT(10) UNSIGNED NOT NULL,
+CREATE TABLE ocm_credential.user_mail (
+	Mail_ID INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	Mail_Address VARCHAR(200) NOT NULL,
+	Mail_Rank TINYINT(1) UNSIGNED NOT NULL DEFAULT 0,
+	Mail_Epoc INT(10) UNSIGNED NOT NULL,
 	User_ID INT(10) UNSIGNED NOT NULL,
-	PRIMARY KEY (User_ID),
+	PRIMARY KEY (Mail_ID),
 	UNIQUE UN_User_Rank (User_ID, Email_Rank)
 ) ENGINE=InnoDB;
 
