@@ -1,9 +1,9 @@
 CREATE DEFINER=`root`@`localhost` PROCEDURE `User_Login`(
-	IN v_username varchar(45),
-	IN v_userpass varchar(200),
-	IN v_remtoken varchar(138),
-	IN v_userIP varchar(39),
-	OUT ret_result varchar(200)
+	IN v_username VARCHAR(45),
+	IN v_userpass VARCHAR(200),
+	IN v_remtoken VARCHAR(138),
+	IN v_userIP VARCHAR(39),
+	OUT ret_result VARCHAR(200)
 )
 BEGIN
 	DECLARE lv_result BOOLEAN DEFAULT TRUE;
@@ -61,5 +61,5 @@ BEGIN
 		SET ret_result = CONCAT('welcome back *', lv_username, '*.');
 	END IF;
 
-	SET ret_result = CONCAT_WS('|',lv_result, ret_result, lv_userID, lv_username, lv_userrole, lv_userstat, v_remtoken)
+	SET ret_result = CONCAT_WS('|', lv_result, ret_result, lv_userID, lv_username, lv_userrole, lv_userstat, v_remtoken)
 END;
