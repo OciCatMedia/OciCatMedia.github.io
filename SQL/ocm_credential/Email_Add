@@ -13,10 +13,11 @@ BEGIN
 		SET lv_result = false;
 		SET ret_result = 'Please check the format of your *Email*, if this is in error, please contact the webmaster.';
 	ELSE IF SELECT COUNT(Email_ID) FROM user_email WHERE Email_Address = v_usermail THEN
-			SET lv_result = false;
-			SET ret_result = CONCAT('The username *', v_username,'* is already in use.');
-		END IF;
+		SET lv_result = false;
+		SET ret_result = CONCAT('The username *', v_username,'* is already in use.');
 	END IF;
+	
+	
 
 
 
