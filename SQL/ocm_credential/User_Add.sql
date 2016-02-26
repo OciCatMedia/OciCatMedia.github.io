@@ -21,8 +21,7 @@ BEGIN
 		SET lv_result = false;
 		SET ret_result = 'Please enter a *Username*, the field cannot be left blank.';
 	ELSE
-		SELECT COUNT(User_ID) INTO lv_userID FROM user WHERE User_Name = v_username;
-		IF lv_userID THEN
+		IF SELECT COUNT(User_ID) FROM user WHERE User_Name = v_username THEN
 			SET lv_result = false;
 			SET ret_result = CONCAT('The username *', v_username,'* is already in use.');
 		END IF;
