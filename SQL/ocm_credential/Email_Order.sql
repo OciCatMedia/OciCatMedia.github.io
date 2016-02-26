@@ -1,9 +1,71 @@
 CREATE DEFINER=`root`@`localhost` PROCEDURE `Mail_Add`(
 	IN v_userID INT(10) UNSIGNED,
-	IN v_usermail VARCHAR(200),
+	IN v_mailID INT(10) UNSIGNED,
+	IN v_mailrank TINYINT(1) UNSIGNED,
 	OUT ret_result VARCHAR(200)
 )
 BEGIN
+	DECLARE lv_result BOOLEAN DEFAULT true;
+	DECLARE lv_mailrank TINYINT(1);
+	DECLARE lv_mailrankmax TINYINT(1);
+
+	SELECT Mail_Rank
+	INTO lv_mailrank
+	FROM user_mail
+	WHERE User_ID = v_userID
+	AND Mail_ID = v_mailID;
+	
+	IF lv_mailrank IS NULL THEN
+		SET lv_result = false;
+		SET ret_result = 'That *email* isn\'t yours to modify.';
+	ELSEIF v_mailrank = lv_mailrank THEN
+		SET lv_result = false;
+		SET ret_result = 'The order of your *email* hasn\'t changed.';
+	ELSE
+		
+	END IF;
+	
+
+	
+	
+
+
+	IF !LENGTH(v_usermail) THEN
+	ELSE IF !v_usermail REGEXP "^[^@]+@[^@\.]+\.[^@\.]+$" THEN
+		SET lv_result = false;
+		SET ret_result = 'Please check the format of your *email*, if this is in error, please contact the webmaster.';
+	ELSE IF SELECT COUNT(Mail_ID) FROM user_mail WHERE Mail_Address = v_usermail THEN
+		SET lv_result = false;
+		SET ret_result = CONCAT('The email *', v_usermail,'* is already in use.');
+
+
+
+
+
+
+
+
+	SELECT MAX(Mail_Rank)
+	INTO lv_mailrankmax
+	FROM user_mail
+	WHERE User_ID = v_userID;
+
+
+
+
+CREATE TABLE ocm_credential. (
+	 INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	Mail_Address VARCHAR(200) NOT NULL,
+	Mail_Rank TINYINT(1) UNSIGNED NOT NULL DEFAULT 0,
+	Mail_Epoc INT(10) UNSIGNED NOT NULL,
+	User_ID INT(10) UNSIGNED NOT NULL,
+	PRIMARY KEY (Mail_ID),
+	UNIQUE UN_User_Rank (User_ID, Email_Rank)
+) ENGINE=InnoDB;
+
+
+
+
 	DECLARE lv_result BOOLEAN DEFAULT true;
 	DECLARE lv_mailrank TINYINT(1) UNSIGNED;
 
