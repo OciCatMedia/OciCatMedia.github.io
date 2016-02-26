@@ -2,12 +2,15 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `User_Create`(
 	IN v_username VARCHAR(45),
 	IN v_userpass CHAR(128),
 	IN v_usermail VARCHAR(200),
-	IN v_IP VARCHAR(39),
+	IN v_userIP VARCHAR(39),
+	IN v_remtoken varchar(138),
 	OUT ret_result VARCHAR(200)
 )
 BEGIN
 	DECLARE lv_epoch INT(10) UNSIGNED DEFAULT UNIX_TIMESTAMP(NOW());
 	DECLARE lv_userID INT(10) UNSIGNED;
+	DECLARE lv_userrole VARCHAR(10);
+	DECLARE lv_userstat VARCHAR(10);
 	DECLARE lv_result BOOLEAN DEFAULT true;
 
 	SET v_username = TRIM(v_username);
@@ -32,28 +35,34 @@ BEGIN
 		SET v_userpass = SHA2(v_userpass ,512);
 	END IF;
 	
-IF !LENGTH(v_usermail) THEN
-	SET lv_result = false;
-	SET ret_result = 'Please enter an *Email*, the field cannot be left blank.';
-ELSE IF !REGEXP(v_usermail,"^[^@]+@[^@\.]+\.[^@\.]+
-	SET lv_result = false;
-	SET ret_result = 'Please check the format of your *Email*, if this is in error, please contact the webmaster.';
-END IF;
+	IF !LENGTH(v_usermail) THEN
+		SET lv_result = false;
+		SET ret_result = 'Please enter an *Email*, the field cannot be left blank.';
+	ELSE IF !v_usermail REGEXP "^[^@]+@[^@\.]+\.[^@\.]+$" THEN
+		SET lv_result = false;
+		SET ret_result = 'Please check the format of your *Email*, if this is in error, please contact the webmaster.';
+	END IF;
 
+	IF lv_result THEN
+		INSERT INTO user (User_Name, User_Pass)
+		VALUES (v_username, v_userpass);
+	
+		SET lv_userID = LAST_INSERT_ID();
+		
+		INSERT INTO user_session (Session_In, Session_IP, User_ID)
+		VALUES (UNIX_TIMESTAMP(NOW()), v_userIP, lv_userID);
+		
+		SELECT User_Role, User_Status
+		INTO lv_userrole, lv_userstat
+		FROM user
+		WHERE user.User_ID = lv_userID
 
-IF lv_result THEN
-	INSERT INTO user (User_Name, User_Pass)
-VALUES (v_username, v_userpass);
-
-SET lv_userID = LAST_INSERT_ID();
-
-INSERT INTO user_act (Act_Name, Act_IP, Act_Epoch, User_ID)
-VALUES ('register', v_IP, lv_epoch, lv_userID);
-
-CALL User_Remember (lv_userID, ret_result);
-
-SET ret_result = CONCAT_WS("|",CONCAT('User *', v_username, '* successfully created.'),ret_result);
-END IF;
-
-SET ret_result = CONCAT_WS(';',lv_result,ret_result);
+		IF LENGTH(v_remtoken) THEN
+			CALL User_Remember (lv_userID, v_remtoken);
+		END IF;
+		
+		SET ret_result = CONCAT('Welcome to OciCat Media, *', v_username,'*.');
+	END IF;
+	
+	SET ret_result = CONCAT_WS('|', lv_result, ret_result, lv_userID, v_username, lv_userrole, lv_userstat, v_remtoken)
 END
