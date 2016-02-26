@@ -12,7 +12,7 @@ BEGIN
 	DECLARE lv_userrole VARCHAR(10);
 	DECLARE lv_userstat VARCHAR(10);
 	DECLARE lv_logintype VARCHAR(6) DEFAULT 'manual';
-	
+
 	SET v_username = TRIM(v_username);
 	SET v_userpass = SHA(TRIM(v_userpass), 512);
 	SET v_remtoken = TRIM(v_remtoken);
@@ -20,20 +20,20 @@ BEGIN
 
 	IF v_username IS NULL THEN
 		SET lv_logintype = 'auto';
-		
+
 		SELECT User_ID, User_Name, User_Role, User_Status
 		INTO lv_userID, lv_username, lv_userrole, lv_userstat
-		FROM user
+		FROM cred_user
 		INNER JOIN user_session
-		ON user.User_ID = user_session.User_ID
+		ON cred_user.User_ID = user_session.User_ID
 		AND user_session.Session_In = CONV(SUBSTR(v_remtoken, 129))
-		WHERE user.User_Remember = SUBSTR(v_remtoken,1,128);
+		WHERE cred_user.User_Remember = SUBSTR(v_remtoken,1,128);
 	ELSE
 		SELECT User_ID, User_Name, User_Role, User_Status
 		INTO lv_userID, lv_username, lv_userrole, lv_userstat
-		FROM user
-		WHERE user.User_Name = v_username
-		AND user.User_pass = v_userpass;
+		FROM cred_user
+		WHERE cred_user.User_Name = v_username
+		AND cred_user.User_pass = v_userpass;
 	END IF;
 
 	IF lv_userID IS NULL THEN
@@ -47,17 +47,17 @@ BEGIN
 			WHEN NOT 'active' THEN
 				SET lv_result = false;
 				SET ret_result = CONCAT('sorry *', lv_username, '*, but your account is currently *', lv_userstat, '*.');
-		END CASE;
+			END CASE;
 	END IF;
 
 	IF lv_result THEN
 		INSERT INTO user_session (Session_In, Session_InType, Session_IP, User_ID)
 		VALUES (UNIX_TIMESTAMP(NOW()), lv_logintype, v_userIP, v_userID)
-		
+
 		IF LENGTH(v_remtoken) THEN
 			CALL User_Remember (lv_userID, v_remtoken);
 		END IF;
-		
+
 		SET ret_result = CONCAT('welcome back *', lv_username, '*.');
 	END IF;
 

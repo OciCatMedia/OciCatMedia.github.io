@@ -19,11 +19,9 @@ BEGIN
 	IF !LENGTH(v_username) THEN
 		SET lv_result = false;
 		SET ret_result = 'Please enter a *Username*, the field cannot be left blank.';
-	ELSE
-		IF SELECT COUNT(User_ID) FROM user WHERE User_Name = v_username THEN
-			SET lv_result = false;
-			SET ret_result = CONCAT('The username *', v_username,'* is already in use.');
-		END IF;
+	ELSEIF SELECT COUNT(User_ID) FROM cred_user WHERE User_Name = v_username THEN
+		SET lv_result = false;
+		SET ret_result = CONCAT('The username *', v_username,'* is already in use.');
 	END IF;
 
 	IF !LENGTH(v_userpass) THEN
@@ -32,27 +30,27 @@ BEGIN
 	ELSE
 		SET v_userpass = SHA2(v_userpass ,512);
 	END IF;
-	
+
 	IF lv_result THEN
-		INSERT INTO user (User_Name, User_Pass)
+		INSERT INTO cred_user (User_Name, User_Pass)
 		VALUES (v_username, v_userpass);
-	
+
 		SET lv_userID = LAST_INSERT_ID();
-		
+
 		INSERT INTO user_session (Session_In, Session_IP, User_ID)
 		VALUES (UNIX_TIMESTAMP(NOW()), v_userIP, lv_userID);
-		
+
 		SELECT User_Role, User_Status
 		INTO lv_userrole, lv_userstat
-		FROM user
-		WHERE user.User_ID = lv_userID
+		FROM cred_user
+		WHERE cred_user.User_ID = lv_userID
 
 		IF LENGTH(v_remtoken) THEN
 			CALL User_Remember (lv_userID, v_remtoken);
 		END IF;
-		
+
 		SET ret_result = CONCAT('Welcome to OciCat Media, *', v_username,'*.');
 	END IF;
-	
+
 	SET ret_result = CONCAT_WS('|', lv_result, ret_result, lv_userID, v_username, lv_userrole, lv_userstat, v_remtoken)
 END
