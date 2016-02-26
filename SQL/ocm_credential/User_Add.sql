@@ -1,7 +1,6 @@
 CREATE DEFINER=`root`@`localhost` PROCEDURE `User_Create`(
 	IN v_username VARCHAR(45),
 	IN v_userpass CHAR(128),
-	IN v_usermail VARCHAR(200),
 	IN v_userIP VARCHAR(39),
 	IN v_remtoken VARCHAR(138),
 	OUT ret_result VARCHAR(200)
@@ -34,14 +33,6 @@ BEGIN
 		SET v_userpass = SHA2(v_userpass ,512);
 	END IF;
 	
-	IF !LENGTH(v_usermail) THEN
-		SET lv_result = false;
-		SET ret_result = 'Please enter an *Email*, the field cannot be left blank.';
-	ELSE IF !v_usermail REGEXP "^[^@]+@[^@\.]+\.[^@\.]+$" THEN
-		SET lv_result = false;
-		SET ret_result = 'Please check the format of your *Email*, if this is in error, please contact the webmaster.';
-	END IF;
-
 	IF lv_result THEN
 		INSERT INTO user (User_Name, User_Pass)
 		VALUES (v_username, v_userpass);
