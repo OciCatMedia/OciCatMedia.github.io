@@ -49,4 +49,5 @@ BEGIN
 				
 			SET ret_result = CONCAT('your *email* has been re-ordered.');
 		END IF;
+	END IF;
 END;
