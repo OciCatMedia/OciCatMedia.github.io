@@ -1,4 +1,4 @@
-CREATE DEFINER=`root`@`localhost` PROCEDURE `Mail_Add`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Mail_Order`(
 	IN v_userID INT(10) UNSIGNED,
 	IN v_mailID INT(10) UNSIGNED,
 	IN v_mailrank TINYINT(1) UNSIGNED,
@@ -17,99 +17,36 @@ BEGIN
 	
 	IF lv_mailrank IS NULL THEN
 		SET lv_result = false;
-		SET ret_result = 'That *email* isn\'t yours to modify.';
-	ELSEIF v_mailrank = lv_mailrank THEN
-		SET lv_result = false;
-		SET ret_result = 'The order of your *email* hasn\'t changed.';
-	ELSE
-		
-	END IF;
-	
-
-	
-	
-
-
-	IF !LENGTH(v_usermail) THEN
-	ELSE IF !v_usermail REGEXP "^[^@]+@[^@\.]+\.[^@\.]+$" THEN
-		SET lv_result = false;
-		SET ret_result = 'Please check the format of your *email*, if this is in error, please contact the webmaster.';
-	ELSE IF SELECT COUNT(Mail_ID) FROM user_mail WHERE Mail_Address = v_usermail THEN
-		SET lv_result = false;
-		SET ret_result = CONCAT('The email *', v_usermail,'* is already in use.');
-
-
-
-
-
-
-
-
-	SELECT MAX(Mail_Rank)
-	INTO lv_mailrankmax
-	FROM user_mail
-	WHERE User_ID = v_userID;
-
-
-
-
-CREATE TABLE ocm_credential. (
-	 INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-	Mail_Address VARCHAR(200) NOT NULL,
-	Mail_Rank TINYINT(1) UNSIGNED NOT NULL DEFAULT 0,
-	Mail_Epoc INT(10) UNSIGNED NOT NULL,
-	User_ID INT(10) UNSIGNED NOT NULL,
-	PRIMARY KEY (Mail_ID),
-	UNIQUE UN_User_Rank (User_ID, Email_Rank)
-) ENGINE=InnoDB;
-
-
-
-
-	DECLARE lv_result BOOLEAN DEFAULT true;
-	DECLARE lv_mailrank TINYINT(1) UNSIGNED;
-
-	SET v_usermail = TRIM(v_usermail);
-
-	IF !LENGTH(v_usermail) THEN
-		SET lv_result = false;
-		SET ret_result = 'Please enter an *email*, the field cannot be left blank.';
-	ELSE IF !v_usermail REGEXP "^[^@]+@[^@\.]+\.[^@\.]+$" THEN
-		SET lv_result = false;
-		SET ret_result = 'Please check the format of your *email*, if this is in error, please contact the webmaster.';
-	ELSE IF SELECT COUNT(Mail_ID) FROM user_mail WHERE Mail_Address = v_usermail THEN
-		SET lv_result = false;
-		SET ret_result = CONCAT('The email *', v_usermail,'* is already in use.');
+		SET ret_result = 'That *email* isn\'t yours to modify.'; #'
 	END IF;
 	
 	IF lv_result THEN
-		SELECT MAX(Mail_Rank) + 1
-		INTO lv_mailrank
+		SELECT MAX(Mail_Rank)
+		INTO lv_mailrankmax
 		FROM user_mail
 		WHERE User_ID = v_userID;
-		
-		IF lv_mailrank IS NULL THEN
-			SET lv_mailrank = 0;
+
+		IF v_mailrank > lv_mailrankmax THEN
+			SET v_mailrank = lv_mailrankmax;
 		END IF;
-		
-		INSERT INTO user_mail (Mail_Address, Mail_Rank, Mail_Epoc, User_ID)
-		VALUES (v_usermail, lv_mailrank, UNIX_TIMESTAMP(NOW()), v_userID);
-		
-		CASE lv_mailrank
-			WHERE 1
-				SET ret_result = CONCAT(lv_mailrank,'^st^');
-			WHERE 2
-				SET ret_result = CONCAT(lv_mailrank,'^nd^');
-			WHERE 3
-				SET ret_result = CONCAT(lv_mailrank,'^rd^');
-			ELSE
-				SET ret_result = CONCAT(lv_mailrank,'^th^');
-		END CASE;
-		
-		SET ret_result = CONCAT('*', v_usermail,'* was successfully added as your *', ret_result, '* address.');
+			
 	
-	END IF;
-
-	SET ret_result = CONCAT_WS('|', lv_result, ret_result);
-
+		IF v_mailrank = lv_mailrank THEN
+			SET lv_result = false;
+			SET ret_result = 'The order of your *email* hasn\'t changed.'; #'
+		ELSE
+			IF v_mailrank > lv_mailrank THEN
+				UPDATE user_mail
+				SET Mail_Rank = Mail_Rank - 1
+				WHERE Mail_Rank > lv_mailrank
+				AND Mail_Rank <= v_mailrank;
+			ELSE 
+				UPDATE user_mail
+				SET Mail_Rank = Mail_Rank + 1
+				WHERE Mail_Rank < lv_mailrank
+				AND Mail_Rank >= v_mailrank;
+			END IF;
+				
+			SET ret_result = CONCAT('your *email* has been re-ordered.');
+		END IF;
 END;
