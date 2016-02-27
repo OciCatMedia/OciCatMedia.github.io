@@ -1,8 +1,8 @@
 CREATE DEFINER=`root`@`localhost` PROCEDURE `User_Add`(
 	IN v_username VARCHAR(45),
 	IN v_userpass CHAR(128),
-	IN v_userIP VARCHAR(39),
 	IN v_remtoken VARCHAR(138),
+	IN v_userIP VARCHAR(39),
 	OUT ret_result VARCHAR(200)
 )
 BEGIN

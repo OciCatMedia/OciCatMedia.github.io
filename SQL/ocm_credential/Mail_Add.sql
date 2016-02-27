@@ -12,7 +12,7 @@ BEGIN
 	IF !LENGTH(v_usermail) THEN
 		SET lv_result = false;
 		SET ret_result = 'Please enter an *email*, the field cannot be left blank.';
-	ELSEIF !v_usermail REGEXP "^[^@]+@[^@\.]+\.[^@\.]+$" THEN
+	ELSEIF !(v_usermail REGEXP "^[^@]+@[^@]+\\.[^@\\.]+$") THEN
 		SET lv_result = false;
 		SET ret_result = 'Please check the format of your *email*, if this is in error, please contact the webmaster.';
 	ELSEIF (SELECT COUNT(Mail_ID) FROM user_mail WHERE Mail_Address = v_usermail) THEN
@@ -34,14 +34,14 @@ BEGIN
 		VALUES (v_usermail, lv_mailrank, UNIX_TIMESTAMP(NOW()), v_userID);
 		
 		CASE lv_mailrank
+			WHEN 0 THEN
+				SET ret_result = 'primary';
 			WHEN 1 THEN
-				SET ret_result = CONCAT(lv_mailrank,'^st^');
+				SET ret_result = 'secondary';
 			WHEN 2 THEN
-				SET ret_result = CONCAT(lv_mailrank,'^nd^');
-			WHEN 3 THEN
-				SET ret_result = CONCAT(lv_mailrank,'^rd^');
+				SET ret_result = CONCAT(lv_mailrank + 1,'^rd^');
 			ELSE
-				SET ret_result = CONCAT(lv_mailrank,'^th^');
+				SET ret_result = CONCAT(lv_mailrank + 1,'^th^');
 		END CASE;
 		
 		SET ret_result = CONCAT('*', v_usermail,'* was successfully added as your *', ret_result, '* address.');
@@ -50,4 +50,4 @@ BEGIN
 
 	SET ret_result = CONCAT_WS('|', lv_result, ret_result);
 
-END;
+END
