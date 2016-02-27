@@ -1,4 +1,4 @@
-CREATE DEFINER=`root`@`localhost` PROCEDURE `ocm_credential.User_Login`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `User_Login`(
 	IN v_username VARCHAR(45),
 	IN v_userpass VARCHAR(200),
 	IN v_remtoken VARCHAR(138),
@@ -14,9 +14,9 @@ BEGIN
 	DECLARE lv_logintype VARCHAR(6) DEFAULT 'manual';
 
 	SET v_username = TRIM(v_username);
-	SET v_userpass = SHA(TRIM(v_userpass), 512);
+	SET v_userpass = SHA2(TRIM(v_userpass), 512);
 	SET v_remtoken = TRIM(v_remtoken);
-	SET v_IP = TRIM(UPPER(v_IP));
+	SET v_userIP = TRIM(UPPER(v_userIP));
 
 	IF v_username IS NULL THEN
 		SET lv_logintype = 'auto';
@@ -26,7 +26,7 @@ BEGIN
 		FROM cred_user
 		INNER JOIN user_session
 		ON cred_user.User_ID = user_session.User_ID
-		AND user_session.Session_In = CONV(SUBSTR(v_remtoken, 129))
+		AND user_session.Session_In = CONV(SUBSTR(v_remtoken, 129),36,10)
 		WHERE cred_user.User_Remember = SUBSTR(v_remtoken,1,128);
 	ELSE
 		SELECT User_ID, User_Name, User_Role, User_Status
@@ -52,7 +52,7 @@ BEGIN
 
 	IF lv_result THEN
 		INSERT INTO user_session (Session_In, Session_InType, Session_IP, User_ID)
-		VALUES (UNIX_TIMESTAMP(NOW()), lv_logintype, v_userIP, v_userID)
+		VALUES (UNIX_TIMESTAMP(NOW()), lv_logintype, v_userIP, v_userID);
 
 		IF LENGTH(v_remtoken) THEN
 			CALL User_Remember (lv_userID, v_remtoken);
@@ -61,5 +61,5 @@ BEGIN
 		SET ret_result = CONCAT('welcome back *', lv_username, '*.');
 	END IF;
 
-	SET ret_result = CONCAT_WS('|', lv_result, ret_result, lv_userID, lv_username, lv_userrole, lv_userstat, v_remtoken)
+	SET ret_result = CONCAT_WS('|', lv_result, ret_result, lv_userID, lv_username, lv_userrole, lv_userstat, v_remtoken);
 END;

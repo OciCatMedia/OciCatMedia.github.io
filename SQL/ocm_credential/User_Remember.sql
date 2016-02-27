@@ -1,4 +1,4 @@
-CREATE DEFINER=`root`@`localhost` PROCEDURE `ocm_credential.User_Remember`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `User_Remember`(
 	IN v_userID INT(10) UNSIGNED,
 	OUT ret_result VARCHAR(138)
 )

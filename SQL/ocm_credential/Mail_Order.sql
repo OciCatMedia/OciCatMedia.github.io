@@ -1,4 +1,4 @@
-CREATE DEFINER=`root`@`localhost` PROCEDURE `ocm_credential.Mail_Order`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Mail_Order`(
 	IN v_userID INT(10) UNSIGNED,
 	IN v_mailID INT(10) UNSIGNED,
 	IN v_mailrank TINYINT(1) UNSIGNED,
@@ -30,7 +30,6 @@ BEGIN
 			SET v_mailrank = lv_mailrankmax;
 		END IF;
 			
-	
 		IF v_mailrank = lv_mailrank THEN
 			SET lv_result = false;
 			SET ret_result = 'The order of your *email* hasn\'t changed.'; 
@@ -54,4 +53,4 @@ BEGIN
 			SET ret_result = CONCAT('your *email* has been re-ordered.');
 		END IF;
 	END IF;
-END;
+END

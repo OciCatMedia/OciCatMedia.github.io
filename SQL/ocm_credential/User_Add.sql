@@ -1,4 +1,4 @@
-CREATE DEFINER=`root`@`localhost` PROCEDURE `ocm_credential.User_Create`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `User_Add`(
 	IN v_username VARCHAR(45),
 	IN v_userpass CHAR(128),
 	IN v_userIP VARCHAR(39),
@@ -14,12 +14,12 @@ BEGIN
 
 	SET v_username = TRIM(v_username);
 	SET v_userpass = TRIM(v_userpass);
-	SET v_IP = TRIM(UPPER(v_IP));
+	SET v_userIP = TRIM(UPPER(v_userIP));
 
 	IF !LENGTH(v_username) THEN
 		SET lv_result = false;
 		SET ret_result = 'Please enter a *Username*, the field cannot be left blank.';
-	ELSEIF SELECT COUNT(User_ID) FROM cred_user WHERE User_Name = v_username THEN
+	ELSEIF (SELECT COUNT(User_ID) FROM cred_user WHERE User_Name = v_username) THEN
 		SET lv_result = false;
 		SET ret_result = CONCAT('The username *', v_username,'* is already in use.');
 	END IF;
@@ -43,7 +43,7 @@ BEGIN
 		SELECT User_Role, User_Status
 		INTO lv_userrole, lv_userstat
 		FROM cred_user
-		WHERE cred_user.User_ID = lv_userID
+		WHERE cred_user.User_ID = lv_userID;
 
 		IF LENGTH(v_remtoken) THEN
 			CALL User_Remember (lv_userID, v_remtoken);
@@ -52,5 +52,5 @@ BEGIN
 		SET ret_result = CONCAT('Welcome to OciCat Media, *', v_username,'*.');
 	END IF;
 
-	SET ret_result = CONCAT_WS('|', lv_result, ret_result, lv_userID, v_username, lv_userrole, lv_userstat, v_remtoken)
-END
+	SET ret_result = CONCAT_WS('|', lv_result, ret_result, lv_userID, v_username, lv_userrole, lv_userstat, v_remtoken);
+END;
