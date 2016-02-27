@@ -1,4 +1,4 @@
-CREATE DEFINER=`root`@`localhost` PROCEDURE `User_Create`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ocm_credential.User_Create`(
 	IN v_username VARCHAR(45),
 	IN v_userpass CHAR(128),
 	IN v_userIP VARCHAR(39),

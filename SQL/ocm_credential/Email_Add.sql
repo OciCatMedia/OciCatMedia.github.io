@@ -1,4 +1,4 @@
-CREATE DEFINER=`root`@`localhost` PROCEDURE `Mail_Add`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ocm_credential.Mail_Add`(
 	IN v_userID INT(10) UNSIGNED,
 	IN v_usermail VARCHAR(200),
 	OUT ret_result VARCHAR(200)

@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS ocm_credential DEFAULT CHARACTER SET utf8 DEFAULT COLLATION utf8_general_ci;
+CREATE DATABASE IF NOT EXISTS ocm_credential DEFAULT CHARACTER SET utf8;
 
 CREATE TABLE ocm_credential.cred_user (
 	User_ID INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -17,8 +17,7 @@ CREATE TABLE ocm_credential.user_mail (
 	Mail_Rank TINYINT(1) UNSIGNED NOT NULL DEFAULT 0,
 	Mail_Epoc INT(10) UNSIGNED NOT NULL,
 	User_ID INT(10) UNSIGNED NOT NULL,
-	PRIMARY KEY (Mail_ID),
-	UNIQUE UN_User_Rank (User_ID, Email_Rank)
+	PRIMARY KEY (Mail_ID)
 ) ENGINE=InnoDB;
 
 CREATE TABLE ocm_credential.user_session (
