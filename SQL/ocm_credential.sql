@@ -1,6 +1,6 @@
 CREATE DATABASE IF NOT EXISTS ocm_credential DEFAULT CHARACTER SET utf8;
 
-CREATE TABLE ocm_credential.cred_user (
+CREATE TABLE IF NOT EXISTS ocm_credential.cred_user (
 	User_ID INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 	User_Name VARCHAR(45) NOT NULL,
 	User_Pass CHAR(128) NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE ocm_credential.cred_user (
 	UNIQUE KEY UN_User_Name (User_Name)
 ) ENGINE=InnoDB;
 
-CREATE TABLE ocm_credential.user_mail (
+CREATE TABLE IF NOT EXISTS ocm_credential.user_mail (
 	Mail_ID INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 	Mail_Address VARCHAR(200) NOT NULL,
 	Mail_Rank TINYINT(1) UNSIGNED NOT NULL DEFAULT 0,
@@ -20,7 +20,7 @@ CREATE TABLE ocm_credential.user_mail (
 	PRIMARY KEY (Mail_ID)
 ) ENGINE=InnoDB;
 
-CREATE TABLE ocm_credential.user_session (
+CREATE TABLE IF NOT EXISTS ocm_credential.user_session (
 	Session_ID BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
 	Session_In INT(10) UNSIGNED NOT NULL,
 	Session_InType ENUM('manual','auto') NOT NULL DEFAULT 'manual',
