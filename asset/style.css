@@ -119,6 +119,14 @@ body > header > nav > ul > li > ul > li {
 	border-radius: 0 0 1.5em 1.5em;
 }
 
+body > header > nav > ul > li > ul > li:first-child {
+	border-bottom-left-radius: 1.5em;
+}
+
+body > header > nav > ul > li > ul > li:last-child {
+	border-bottom-right-radius: 1.5em;
+}
+
 body > header > nav > ul > li > ul > li > a {
 	color: #000;
 	padding: 1em;
