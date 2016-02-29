@@ -116,6 +116,7 @@ body > header > nav > ul > li > ul > li {
 	background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(255,255,255,1) 35%,rgba(255,255,255,0) 100%);
 	background-color: #DDD0D3;
 	background-color: #EED1F6;
+	background-color: #800080;
 }
 
 body > header > nav > ul > li > ul > li:first-child {
