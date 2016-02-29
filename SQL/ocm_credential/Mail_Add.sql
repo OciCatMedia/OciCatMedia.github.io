@@ -4,8 +4,8 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `Mail_Add`(
 	OUT ret_result VARCHAR(200)
 )
 BEGIN
-	DECLARE lv_result BOOLEAN DEFAULT true;
 	DECLARE lv_mailrank TINYINT(1) UNSIGNED;
+	DECLARE lv_result BOOLEAN DEFAULT true;
 
 	SET v_usermail = TRIM(v_usermail);
 

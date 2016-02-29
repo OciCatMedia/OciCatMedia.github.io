@@ -5,9 +5,9 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `Mail_Order`(
 	OUT ret_result VARCHAR(200)
 )
 BEGIN
-	DECLARE lv_result BOOLEAN DEFAULT true;
 	DECLARE lv_mailrank TINYINT(1);
 	DECLARE lv_mailrankmax TINYINT(1);
+	DECLARE lv_result BOOLEAN DEFAULT true;
 
 	SELECT Mail_Rank
 	INTO lv_mailrank

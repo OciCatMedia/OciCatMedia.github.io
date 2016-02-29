@@ -1,0 +1,179 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #DDD0D3;
+	background-color: #D8BFD8;
+	background-color: #F6C9CC;
+	background-color: #EED1F6;
+}
+
+.WCAG_hide {
+	position: absolute !important;
+	left: -999999px !important;
+	top: -999999px !important;
+}
+
+body > header {
+	background: #800080 url(logo.png) no-repeat;
+	color: #FFF;
+	font-variant: small-caps;
+}
+
+body > header, body > section {
+	padding-top: 1.5em;
+}
+
+body > header, body > section, body > footer {
+	width: 80%;
+	margin: 0 auto;
+	padding-right: 1em;
+	padding-left: 1em;
+}
+
+body > section {
+	padding-bottom: 3em;
+}
+
+body > section, body > footer {
+	background-color: #FFF;
+}
+
+body > footer {
+	text-align: center;
+	padding-bottom: 1em;
+}
+
+
+/* ============================== */
+/* ============================== */
+
+body > header h1 {
+	font-family: cursive, serif;
+	font-size: 2.3em;
+	margin: 0 250px;
+}
+
+body > header a {
+	text-decoration: none;
+	font-size: 1.3em;
+	display: block;
+}
+
+body > header nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+body > header nav ul li {
+	display: inline-block;
+}
+
+/* ============================== */
+/* ============================== */
+
+body > header > nav > ul {
+	position: relative;
+}
+
+body > header > nav > ul > li:hover, body > header nav > ul > li.active {
+	background-color: #DDD0D3;
+	background-color: #EED1F6;
+	border-radius: .5em .5em 0 0;
+}
+
+body > header > nav > ul > li > a {
+	color: #FFF;
+	padding: .6em;
+}
+
+body > header > nav > ul > li:hover > a, body > header nav > ul > li.active > a {
+	color: #000;
+}
+
+body > header > nav > ul > li > ul {
+	position: absolute;
+	top: 3em;
+	left: 0;
+	right: 0;
+	background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(255,255,255,1) 35%,rgba(255,255,255,0) 100%);
+	background-color: #DDD0D3;
+	background-color: #EED1F6;
+	color: #000;
+	height: 0px;
+	overflow: hidden;
+	z-index: 1000;
+	border-radius: 0 0 1.5em 1.5em;
+}
+
+body > header > nav > ul > li:hover > ul {
+	height: auto;
+}
+
+body > header > nav > ul > li.active > ul {
+	height: auto;
+	z-index: 500;
+}
+
+body > header nav > ul > li > ul > li > a {
+	color: #000;
+	padding: 1em;
+}
+
+
+body > header nav > ul > li > ul > li > a:hover {
+	font-style: oblique;
+}
+
+/* ============================== */
+/* ============================== */
+
+body > section {
+}
+
+body > section > h1:first-child {
+	margin-top: 0;
+}
+
+/* ============================== */
+/* ============================== */
+
+body > footer > nav > ul {
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+}
+
+body > footer > nav > ul > li {
+	display: inline;
+}
+
+body > footer > nav > ul > li:after {
+	content: ' | ';
+	font-weight: bold;
+	margin: 0 .3em;
+}
+
+body > footer > nav > ul > li:last-child:after {
+	content: '';
+	margin: 0;
+}
+
+body > footer > small {
+	display: block;
+	margin-top: .5em;
+	font-style: italic;
+}
+
+
+
+
+
+
+
+
+
+
+
+

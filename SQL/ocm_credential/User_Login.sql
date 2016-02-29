@@ -6,12 +6,12 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `User_Login`(
 	OUT ret_result VARCHAR(200)
 )
 BEGIN
-	DECLARE lv_result BOOLEAN DEFAULT TRUE;
 	DECLARE lv_userID INT(10) UNSIGNED;
 	DECLARE lv_username VARCHAR(45);
 	DECLARE lv_userrole VARCHAR(10);
 	DECLARE lv_userstat VARCHAR(10);
 	DECLARE lv_logintype VARCHAR(6) DEFAULT 'manual';
+	DECLARE lv_result BOOLEAN DEFAULT TRUE;
 
 	SET v_username = TRIM(v_username);
 	SET v_userpass = SHA2(TRIM(v_userpass), 512);
