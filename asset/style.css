@@ -97,14 +97,10 @@ body > header > nav > ul > li > ul {
 	top: 3em;
 	left: 0;
 	right: 0;
-	background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(255,255,255,1) 35%,rgba(255,255,255,0) 100%);
-	background-color: #DDD0D3;
-	background-color: #EED1F6;
 	color: #000;
 	height: 0px;
 	overflow: hidden;
 	z-index: 1000;
-	border-radius: 0 0 1.5em 1.5em;
 }
 
 body > header > nav > ul > li:hover > ul {
@@ -116,7 +112,14 @@ body > header > nav > ul > li.active > ul {
 	z-index: 500;
 }
 
-body > header nav > ul > li > ul > li > a {
+body > header > nav > ul > li > ul > li {
+	background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(255,255,255,1) 35%,rgba(255,255,255,0) 100%);
+	background-color: #DDD0D3;
+	background-color: #EED1F6;
+	border-radius: 0 0 1.5em 1.5em;
+}
+
+body > header > nav > ul > li > ul > li > a {
 	color: #000;
 	padding: 1em;
 }
