@@ -170,7 +170,11 @@ body > footer > small {
 
 @media screen and (max-width: 1224px) {
 body > * {
-margin: auto;
+width: auto;
+max-width: auto;
+min-width: auto;
+margin: 0;
+
 }
 
 body {
