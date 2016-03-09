@@ -172,6 +172,10 @@ body > footer > small {
 body > * {
 margin: auto;
 }
+
+body {
+background-color: #000 !important;
+}
 }
 
 
