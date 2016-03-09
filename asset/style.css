@@ -9,40 +9,42 @@ body {
 
 .WCAG_hide {
 	position: absolute !important;
-	left: -999999px !important;
-	top: -999999px !important;
+	left: -99999px !important;
+	top: auto !important;
+}
+
+body > main h1, body > main h2, body > main h3, body > main h4, body > main h5, body > main h6 {
+	font-family: serif !important;
+}
+
+body > * {
+	width: 80%;
+	min-width: 800px;
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 0 1em;
 }
 
 body > header {
 	background: #800080 url(logo.png) no-repeat;
 	color: #FFF;
+	font-family: serif;
 	font-variant: small-caps;
+	padding-top: .5em;
 }
 
-body > header, body > section {
-	padding-top: 1.5em;
-}
-
-body > header, body > section, body > footer {
-	width: 80%;
-	margin: 0 auto;
-	padding-right: 1em;
-	padding-left: 1em;
-}
-
-body > section {
+body > main {
+	background-color: #FFF;
+	font-family: sans-serif;
+	padding-top: 1em;
 	padding-bottom: 3em;
 }
 
-body > section, body > footer {
-	background-color: #FFF;
-}
-
 body > footer {
+	background-color: #FFF;
 	text-align: center;
 	padding-bottom: 1em;
 }
-
 
 /* ============================== */
 /* ============================== */
@@ -50,102 +52,91 @@ body > footer {
 body > header h1 {
 	font-family: cursive, serif;
 	font-size: 2.3em;
-	margin: 0 250px;
+	margin: 0 200px;
 }
 
 body > header a {
 	text-decoration: none;
 	font-size: 1.3em;
+	font-weight: bold;
 	display: block;
 }
 
-body > header nav ul {
+body > header > nav {
+	padding-top: .75em;
+}
+
+body > header > nav > ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 	text-align: center;
 }
 
-body > header nav ul li {
+body > header > nav > ul > li {
 	display: inline-block;
 }
 
-/* ============================== */
-/* ============================== */
-
-body > header > nav > ul {
-	position: relative;
+body > header > nav > ul > li:hover {
+	font-style: oblique;
 }
 
-body > header > nav > ul > li:hover, body > header nav > ul > li.active {
+body > header > nav > ul > li.active {
 	background-color: #DDD0D3;
 	background-color: #EED1F6;
-	border-radius: .5em .5em 0 0;
+	background-color: #FFFFFF;
+	border-radius: 1.5em 1.5em 0 0;
 }
 
 body > header > nav > ul > li > a {
 	color: #FFF;
 	padding: .6em;
+	padding-bottom: .2em;
 }
 
-body > header > nav > ul > li:hover > a, body > header nav > ul > li.active > a {
-	color: #000;
-}
-
-body > header > nav > ul > li > ul {
-	position: absolute;
-	top: 3em;
-	left: 0;
-	right: 0;
-	color: #000;
-	height: 0px;
-	overflow: hidden;
-	z-index: 1000;
-}
-
-body > header > nav > ul > li:hover > ul {
-	height: auto;
-}
-
-body > header > nav > ul > li.active > ul {
-	height: auto;
-	z-index: 500;
-}
-
-body > header > nav > ul > li > ul > li {
-	background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(255,255,255,1) 35%,rgba(255,255,255,0) 100%);
-	background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(0,0,0,0) 35%,rgba(0,0,0,1) 100%);
-	background-color: #DDD0D3;
-	background-color: #EED1F6;
-	background-color: #800080;
-}
-
-body > header > nav > ul > li > ul > li:first-child {
-	border-bottom-left-radius: 1.5em;
-}
-
-body > header > nav > ul > li > ul > li:last-child {
-	border-bottom-right-radius: 1.5em;
-}
-
-body > header > nav > ul > li > ul > li > a {
-	color: #000;
-	padding: 1em;
-}
-
-
-body > header nav > ul > li > ul > li > a:hover {
-	font-style: oblique;
+body > header > nav > ul li.active > a {
+	color: #800080;
 }
 
 /* ============================== */
 /* ============================== */
 
-body > section {
+body > main {
 }
 
-body > section > h1:first-child {
-	margin-top: 0;
+body > main > header {
+	font-variant: small-caps;
+	background-color: #AAA;
+}
+
+body > main > header > * {
+	display: inline-block;
+}
+
+body > main > header > h1 {
+	margin: 0;
+}
+
+body > main > header > nav {
+	font-size: 1.2em;
+	font-weight: bold;
+	text-align: right;	
+}
+
+body > main > header > nav > ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+body > main > header > nav > ul > li {
+	display: inline-block;
+	padding-left: 1em;
+}
+
+body > main > header > nav > ul > li > a {
+	color: #800080;
+	text-decoration: none;
 }
 
 /* ============================== */
@@ -162,14 +153,13 @@ body > footer > nav > ul > li {
 }
 
 body > footer > nav > ul > li:after {
-	content: ' | ';
+	content: ' ';
 	font-weight: bold;
 	margin: 0 .3em;
 }
 
 body > footer > nav > ul > li:last-child:after {
-	content: '';
-	margin: 0;
+	display: none;
 }
 
 body > footer > small {
@@ -177,7 +167,6 @@ body > footer > small {
 	margin-top: .5em;
 	font-style: italic;
 }
-
 
 
 
