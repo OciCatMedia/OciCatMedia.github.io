@@ -168,7 +168,7 @@ body > footer > small {
 	font-style: italic;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1224px) {
 body > * {
 margin: auto;
 }
