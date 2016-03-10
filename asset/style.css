@@ -7,13 +7,17 @@ body {
 	background-color: #EED1F6;
 }
 
+a:hover, a:focus {
+	font-style: oblique;
+}
+
 .WCAG_hide {
 	position: absolute !important;
 	left: -99999px !important;
 	top: auto !important;
 }
 
-body > main h1, body > main h2, body > main h3, body > main h4, body > main h5, body > main h6 {
+body > main h1, body > main h2, body > main h3, body > main h4, body > main h5, body > main h6, nav {
 	font-family: serif !important;
 }
 
@@ -77,10 +81,6 @@ body > header > nav > ul > li {
 	display: inline-block;
 }
 
-body > header > nav > ul > li:hover {
-	font-style: oblique;
-}
-
 body > header > nav > ul > li.active {
 	background-color: #DDD0D3;
 	background-color: #EED1F6;
@@ -106,7 +106,8 @@ body > main {
 
 body > main > header {
 	font-variant: small-caps;
-	background-color: #AAA;
+	position: relative;
+	margin-bottom: 1.25em;
 }
 
 body > main > header > * {
@@ -114,13 +115,16 @@ body > main > header > * {
 }
 
 body > main > header > h1 {
+	font-size: 2em;
 	margin: 0;
 }
 
 body > main > header > nav {
-	font-size: 1.2em;
+	position: absolute;
+	right: 0;
+	line-height: 2em;
+	font-size: 1.3em;
 	font-weight: bold;
-	text-align: right;	
 }
 
 body > main > header > nav > ul {
@@ -131,12 +135,15 @@ body > main > header > nav > ul {
 
 body > main > header > nav > ul > li {
 	display: inline-block;
+	padding: 0;
 	padding-left: 1em;
+	margin: 0;
 }
 
 body > main > header > nav > ul > li > a {
 	color: #800080;
 	text-decoration: none;
+	padding: .5em;
 }
 
 /* ============================== */
@@ -168,22 +175,72 @@ body > footer > small {
 	font-style: italic;
 }
 
-@media screen and (max-width: 1224px) {
-body > * {
-width: auto;
-max-width: auto;
-min-width: auto;
-margin: 0;
+/* ============================== */
+/* ============================== */
 
+section#news {
 }
 
-body {
-background-color: #000 !important;
-}
+section#news > h2 {
 }
 
+section#news > article {
+	margin: 0 10%;
+	padding: 1em;
+	padding-top: 0;
+	margin-bottom: 2em;
+	border: 1px ridge #CCC;
+	border: none;
+	border-bottom: 1px ridge #CCC;
+}
+
+section#news > article > header {
+	border-bottom: 1px ridge #CCC;	
+}
+
+section#news > article > header > h3 {
+	margin: 0;
+}
+
+section#news > article > header > h3 > a {
+	text-decoration: none;
+	color: #800080;
+}
+
+section#news > article > p {
+}
+
+section#news > article > p:first-child:first-letter {
+	font-size: 1.5em;
+}
+
+section#news > article > footer {
+	position: relative;
+	text-align: right;
+}
+
+section#news > article > footer > a {
+	position: absolute;
+	left: 0;
+}
+
+section#news > article > footer > time {
+}
 
 
+
+			<section id="news">
+				<h2><a name="news"/>News</h2>
+				<article>
+					<header>
+						<h3><a href="news_1.html">News Title!</a></h3>
+					</header>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, metus id consequat hendrerit, dolor eros tincidunt lacus, non feugiat dui mauris sit amet dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed venenatis molestie dolor a rutrum. Pellentesque at dictum mi, ac varius dui. Mauris ultrices mauris eu lacinia maximus. Integer dignissim fringilla neque, vestibulum posuere eros sodales vel. Aenean semper turpis in nunc commodo semper. Proin eu augue eu quam vulputate euismod. Curabitur a tempus massa, in posuere leo. Integer eleifend lacus quis neque feugiat, ac rhoncus nisl fringilla. Nulla id mattis lorem. Donec condimentum rhoncus est at aliquam.</p>
+					<footer>
+						<a href="news_1.html#comment">3 comments</a>
+						posted <time datetime="2016-02-28T17:03Z">2 minutes ago</time>
+					</footer>
+				</article>
 
 
 
