@@ -229,18 +229,42 @@ section#news > article > footer > time {
 
 
 
-			<section id="news">
-				<h2><a name="news"/>News</h2>
-				<article>
-					<header>
-						<h3><a href="news_1.html">News Title!</a></h3>
-					</header>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, metus id consequat hendrerit, dolor eros tincidunt lacus, non feugiat dui mauris sit amet dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed venenatis molestie dolor a rutrum. Pellentesque at dictum mi, ac varius dui. Mauris ultrices mauris eu lacinia maximus. Integer dignissim fringilla neque, vestibulum posuere eros sodales vel. Aenean semper turpis in nunc commodo semper. Proin eu augue eu quam vulputate euismod. Curabitur a tempus massa, in posuere leo. Integer eleifend lacus quis neque feugiat, ac rhoncus nisl fringilla. Nulla id mattis lorem. Donec condimentum rhoncus est at aliquam.</p>
-					<footer>
-						<a href="news_1.html#comment">3 comments</a>
-						posted <time datetime="2016-02-28T17:03Z">2 minutes ago</time>
-					</footer>
-				</article>
+
+
+section#news > article > header > h2 {
+	margin-bottom: 0;
+}
+
+
+
+
+
+
+section#news > section#comment {
+	margin: 0 15%;
+}
+
+section#news > section#comment > article {
+	padding-bottom: .4em;
+	margin-bottom: 2em;
+	border-bottom: 1px ridge #CCC;		
+}
+
+section#news > section#comment > article:last-child {
+	padding-bottom: 0;
+	margin-bottom: 0;
+	border-bottom: none;		
+}
+
+section#news > section#comment > article > div {
+	
+}
+
+section#news > section#comment > article > footer {
+	text-align: right;
+	
+}
+
 
 
 
