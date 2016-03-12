@@ -194,8 +194,12 @@ section#news > article {
 	border-bottom: 1px ridge #CCC;
 }
 
+section#news[itemtype="https://schema.org/BlogPosting"] > article:last-child {
+	border-bottom: none;
+}
+
 section#news > article > header {
-	border-bottom: 1px ridge #CCC;	
+	/*border-bottom: 1px ridge #CCC;	*/
 }
 
 section#news > article > header > h3 {
@@ -221,7 +225,17 @@ section#news > article > footer {
 
 section#news > article > footer > a {
 	position: absolute;
+	top: calc((40px - 1.1em) / 2);
 	left: 0;
+	font-size: 1.1em;
+}
+
+section#news article > footer > span  {
+	vertical-align: middle;
+}
+
+section#news article > footer > span[itemprop="author"] img {
+	vertical-align: middle;
 }
 
 section#news > article > footer > time {
