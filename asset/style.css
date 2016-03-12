@@ -195,15 +195,30 @@ section#news > article, article#news {
 	margin-bottom: 2em;
 }
 
+<<<<<<< HEAD
 section#news > article > header > h2, article#news > header > h2 {
+=======
+section#news > article[itemtype="https://schema.org/BlogPosting"]:last-child {
+	border-bottom: none;
+}
+
+section#news > article > header {
+}
+
+section#news > article > header > h2 {
+>>>>>>> origin/master
 	margin-bottom: 0;
 }
 
 
 
 
+<<<<<<< HEAD
 
 section#news > article > footer, article#news > footer {
+=======
+section#news > article > footer {
+>>>>>>> origin/master
 	position: relative;
 	text-align: right;
 	padding-bottom: 1em;
@@ -216,19 +231,25 @@ section#news > article > footer > a, article#news > footer > a {
 	font-size: 1.1em;
 }
 
+<<<<<<< HEAD
 
 
 
 
 
 article#news footer > span[itemprop="author"] img {
+=======
+section#news article > footer > span  {
 	vertical-align: middle;
 }
 
+section#news article > footer > span[itemprop="author"] img {
+>>>>>>> origin/master
+	vertical-align: middle;
+}
 
-
-
-
+section#news > article > footer > time {
+}
 
 
 
