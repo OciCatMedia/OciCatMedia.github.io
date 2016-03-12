@@ -11,7 +11,7 @@ a:hover, a:focus {
 	font-style: oblique;
 }
 
-.WCAG_hide {
+.WCAG_hide, [aria-hidden="true"] {
 	position: absolute !important;
 	left: -99999px !important;
 	top: auto !important;
@@ -221,7 +221,7 @@ section#news > article > footer > a, article#news > footer > a {
 
 
 
-article#news footer > span[itemprop="author"] img {
+section#news > article footer > span[itemprop="author"] img, article#news footer > span[itemprop="author"] img {
 	vertical-align: middle;
 }
 
