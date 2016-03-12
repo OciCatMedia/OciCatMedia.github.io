@@ -185,17 +185,230 @@ section#news > h2 {
 }
 
 section#news > article {
+	border-bottom: 1px ridge #CCC;
+}
+
+section#news > article, article#news {
 	margin: 0 10%;
 	padding: 1em;
 	padding-top: 0;
 	margin-bottom: 2em;
-	border: 1px ridge #CCC;
-	border: none;
+}
+
+section#news > article > header > h2, article#news > header > h2 {
+	margin-bottom: 0;
+}
+
+
+
+
+
+section#news > article > footer, article#news > footer {
+	position: relative;
+	text-align: right;
+	padding-bottom: 1em;
+}
+
+section#news > article > footer > a, article#news > footer > a {
+	position: absolute;
+	top: calc((40px - 1.1em) / 2);
+	left: 0;
+	font-size: 1.1em;
+}
+
+
+
+
+
+
+article#news footer > span[itemprop="author"] img {
+	vertical-align: middle;
+}
+
+
+
+
+
+
+
+
+
+article#news > aside {
+	margin: 0 5%;
+}
+
+article#news > aside > article {
+	padding-bottom: .4em;
+	margin-bottom: 2em;
+	border-bottom: 1px ridge #CCC;		
+}
+
+article#news > aside > article:last-child {
+	padding-bottom: 0;
+	margin-bottom: 0;
+	border-bottom: none;		
+}
+
+article#news > aside > article > div {
+	
+}
+
+article#news > aside > article > footer {
+	text-align: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+article#news > footer {
 	border-bottom: 1px ridge #CCC;
 }
 
+
+
+
+
+
+article#news {
+}
+
+
+
+article#news > header {
+}
+
+article#news > header > h2 {
+}
+
+article#news > header > div {
+}
+
+
+
+section#news article > footer > span  {
+}
+
+section#news > article > footer > time {
+}
+
+
+
+
+article#news > footer > a {
+}
+
+article#news > footer > a > span {
+}
+
+article#news > footer > span {
+}
+
+article#news > footer > span > span {
+}
+
+article#news > footer > span > span > img {
+}
+
+article#news > footer > span > span > a {
+}
+
+article#news > footer > time {
+}
+
+article#news > footer > span {
+}
+
+article#news > footer > span > span {
+}
+
+article#news > footer > span {
+}
+
+article#news > aside#comment {
+}
+
+article#news > aside#comment > h3 {
+}
+
+article#news > aside#comment > article {
+}
+
+article#news > aside#comment > article > h4 {
+}
+
+article#news > aside#comment > article > h4 > span {
+}
+
+article#news > aside#comment > article > div {
+}
+
+article#news > aside#comment > article > footer {
+}
+
+article#news > aside#comment > article > footer > span {
+}
+
+article#news > aside#comment > article > footer > span > span {
+}
+
+article#news > aside#comment > article > footer > span > span > img {
+}
+
+article#news > aside#comment > article > footer > span > span {
+}
+
+article#news > aside#comment > article > footer > time {
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+section#news > article[itemtype="https://schema.org/BlogPosting"]:last-child {
+	border-bottom: none;
+}
+
 section#news > article > header {
-	border-bottom: 1px ridge #CCC;	
 }
 
 section#news > article > header > h3 {
@@ -210,60 +423,6 @@ section#news > article > header > h3 > a {
 section#news > article > p {
 }
 
-section#news > article > p:first-child:first-letter {
-	font-size: 1.5em;
-}
-
-section#news > article > footer {
-	position: relative;
-	text-align: right;
-}
-
-section#news > article > footer > a {
-	position: absolute;
-	left: 0;
-}
-
-section#news > article > footer > time {
-}
-
-
-
-
-
-section#news > article > header > h2 {
-	margin-bottom: 0;
-}
-
-
-
-
-
-
-section#news > section#comment {
-	margin: 0 15%;
-}
-
-section#news > section#comment > article {
-	padding-bottom: .4em;
-	margin-bottom: 2em;
-	border-bottom: 1px ridge #CCC;		
-}
-
-section#news > section#comment > article:last-child {
-	padding-bottom: 0;
-	margin-bottom: 0;
-	border-bottom: none;		
-}
-
-section#news > section#comment > article > div {
-	
-}
-
-section#news > section#comment > article > footer {
-	text-align: right;
-	
-}
 
 
 
