@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
 	margin: 0;
 	padding: 0;
@@ -449,3 +450,442 @@ section#news > article > p {
 
 
 
+=======
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #DDD0D3;
+	background-color: #D8BFD8;
+	background-color: #F6C9CC;
+	background-color: #EED1F6;
+}
+
+a:hover, a:focus {
+	font-style: oblique;
+}
+
+.WCAG_hide, [aria-hidden="true"] {
+	position: absolute !important;
+	left: -99999px !important;
+	top: auto !important;
+}
+
+body > main h1, body > main h2, body > main h3, body > main h4, body > main h5, body > main h6, nav {
+	font-family: serif !important;
+}
+
+body > * {
+	width: 80%;
+	min-width: 800px;
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 0 1em;
+}
+
+body > header {
+	background: #800080 url(logo.png) no-repeat;
+	color: #FFF;
+	font-family: serif;
+	font-variant: small-caps;
+	padding-top: .5em;
+}
+
+body > main {
+	background-color: #FFF;
+	font-family: sans-serif;
+	padding-top: 1em;
+	padding-bottom: 3em;
+}
+
+body > footer {
+	background-color: #FFF;
+	text-align: center;
+	padding-bottom: 1em;
+}
+
+/* ============================== */
+/* ============================== */
+
+body > header h1 {
+	font-family: cursive, serif;
+	font-size: 2.3em;
+	margin: 0 200px;
+}
+
+body > header a {
+	text-decoration: none;
+	font-size: 1.3em;
+	font-weight: bold;
+	display: block;
+}
+
+body > header > nav {
+	padding-top: .75em;
+}
+
+body > header > nav > ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+body > header > nav > ul > li {
+	display: inline-block;
+}
+
+body > header > nav > ul > li.active {
+	background-color: #DDD0D3;
+	background-color: #EED1F6;
+	background-color: #FFFFFF;
+	border-radius: 1.5em 1.5em 0 0;
+}
+
+body > header > nav > ul > li > a {
+	color: #FFF;
+	padding: .6em;
+	padding-bottom: .2em;
+}
+
+body > header > nav > ul li.active > a {
+	color: #800080;
+}
+
+/* ============================== */
+/* ============================== */
+
+body > main {
+}
+
+body > main > header {
+	font-variant: small-caps;
+	position: relative;
+	margin-bottom: 1.25em;
+}
+
+body > main > header > * {
+	display: inline-block;
+}
+
+body > main > header > h1 {
+	font-size: 2em;
+	margin: 0;
+}
+
+body > main > header > nav {
+	position: absolute;
+	right: 0;
+	line-height: 2em;
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
+body > main > header > nav > ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+body > main > header > nav > ul > li {
+	display: inline-block;
+	padding: 0;
+	padding-left: 1em;
+	margin: 0;
+}
+
+body > main > header > nav > ul > li > a {
+	color: #800080;
+	text-decoration: none;
+	padding: .5em;
+}
+
+body > main > header > nav > ul > li.active > a {
+	text-decoration: underline;
+}
+
+/* ============================== */
+/* ============================== */
+
+body > footer > nav > ul {
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+}
+
+body > footer > nav > ul > li {
+	display: inline;
+}
+
+body > footer > nav > ul > li:after {
+	content: ' ';
+	font-weight: bold;
+	margin: 0 .3em;
+}
+
+body > footer > nav > ul > li:last-child:after {
+	display: none;
+}
+
+body > footer > small {
+	display: block;
+	margin-top: .5em;
+	font-style: italic;
+}
+
+/* ============================== */
+/* ============================== */
+
+section#news {
+}
+
+section#news > h2 {
+}
+
+section#news > article {
+	border-bottom: 1px ridge #CCC;
+}
+
+section#news > article, article#news {
+	margin: 0 10%;
+	padding: 1em;
+	padding-top: 0;
+	margin-bottom: 2em;
+}
+
+section#news > article > header > h2, article#news > header > h2 {
+	margin-bottom: 0;
+}
+
+
+
+
+
+section#news > article > footer, article#news > footer {
+	position: relative;
+	text-align: right;
+	padding-bottom: 1em;
+}
+
+section#news > article > footer > a, article#news > footer > a {
+	position: absolute;
+	top: calc((40px - 1.1em) / 2);
+	left: 0;
+	font-size: 1.1em;
+}
+
+
+
+
+
+
+section#news > article footer > span[itemprop="author"] img, article#news footer > span[itemprop="author"] img {
+	vertical-align: middle;
+}
+
+
+
+
+
+
+
+
+
+article#news > aside {
+	margin: 0 5%;
+}
+
+article#news > aside > article {
+	padding-bottom: .4em;
+	margin-bottom: 2em;
+	border-bottom: 1px ridge #CCC;		
+}
+
+article#news > aside > article:last-child {
+	padding-bottom: 0;
+	margin-bottom: 0;
+	border-bottom: none;		
+}
+
+article#news > aside > article > div {
+	
+}
+
+article#news > aside > article > footer {
+	text-align: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+article#news > footer {
+	border-bottom: 1px ridge #CCC;
+}
+
+
+
+
+
+
+article#news {
+}
+
+
+
+article#news > header {
+}
+
+article#news > header > h2 {
+}
+
+article#news > header > div {
+}
+
+
+
+section#news article > footer > span  {
+}
+
+section#news > article > footer > time {
+}
+
+
+
+
+article#news > footer > a {
+}
+
+article#news > footer > a > span {
+}
+
+article#news > footer > span {
+}
+
+article#news > footer > span > span {
+}
+
+article#news > footer > span > span > img {
+}
+
+article#news > footer > span > span > a {
+}
+
+article#news > footer > time {
+}
+
+article#news > footer > span {
+}
+
+article#news > footer > span > span {
+}
+
+article#news > footer > span {
+}
+
+article#news > aside#comment {
+}
+
+article#news > aside#comment > h3 {
+}
+
+article#news > aside#comment > article {
+}
+
+article#news > aside#comment > article > h4 {
+}
+
+article#news > aside#comment > article > h4 > span {
+}
+
+article#news > aside#comment > article > div {
+}
+
+article#news > aside#comment > article > footer {
+}
+
+article#news > aside#comment > article > footer > span {
+}
+
+article#news > aside#comment > article > footer > span > span {
+}
+
+article#news > aside#comment > article > footer > span > span > img {
+}
+
+article#news > aside#comment > article > footer > span > span {
+}
+
+article#news > aside#comment > article > footer > time {
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+section#news > article[itemtype="https://schema.org/BlogPosting"]:last-child {
+	border-bottom: none;
+}
+
+section#news > article > header {
+}
+
+section#news > article > header > h3 {
+	margin: 0;
+}
+
+section#news > article > header > h3 > a {
+	text-decoration: none;
+	color: #800080;
+}
+
+section#news > article > p {
+}
+
+
+
+
+
+
+
+
+
+>>>>>>> origin/master
