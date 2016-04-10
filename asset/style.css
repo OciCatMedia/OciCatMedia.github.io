@@ -148,17 +148,13 @@ body > nav > ul > li.active > a {
 body > main {
 }
 
-body > main > header {
+body > main header {
 	font-variant: small-caps;
 	position: relative;
 	margin-bottom: 1.25em;
 }
 
-body > main > header > * {
-	display: inline-block;
-}
-
-body > main > header > h1 {
+body > main header > h1 {
 	font-size: 2em;
 	margin: 0;
 }
