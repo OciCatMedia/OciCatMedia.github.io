@@ -158,6 +158,11 @@ body > main header > h1 {
 	margin: 0;
 }
 
+body > main header > h2 {
+	margin: 0;
+}
+
+
 
 /* ============================== */
 /* ============================== */
@@ -191,53 +196,42 @@ body > footer > small {
 /* ============================== */
 /* ============================== */
 
-section#news {
-}
-
-section#news > h2 {
-}
-
-section#news > article {
-	border-bottom: 1px ridge #CCC;
-}
-
-section#news > article, article#news {
+main#blog > article {
 	margin: 0 10%;
-	padding: 1em;
-	padding-top: 0;
-	margin-bottom: 2em;
 }
 
-section#news > article > header > h2, article#news > header > h2 {
-	margin-bottom: 0;
+main#blog > article:after {
+	content: "";
+	display: block;
+	box-shadow: 0px 1px 2px;
+	margin: 1.5em 40% 4em 40%;
+	height: 1px;
 }
 
+main#blog > article:last-child:after {
+	display: none;
+}
 
-
-
-
-section#news > article > footer, article#news > footer {
+main#blog > article > footer {
 	position: relative;
 	text-align: right;
 	padding-bottom: 1em;
 }
 
-section#news > article > footer > a, article#news > footer > a {
+main#blog > article > footer > a {
 	position: absolute;
 	top: calc((40px - 1.1em) / 2);
 	left: 0;
 	font-size: 1.1em;
 }
 
-
-
-
-
-
-section#news > article footer > span[itemprop="author"] img, article#news footer > span[itemprop="author"] img {
+main#blog > article > footer img{
 	vertical-align: middle;
 }
 
+main#blog > article > footer time{
+	font-style: italic;
+}
 
 
 
@@ -246,27 +240,24 @@ section#news > article footer > span[itemprop="author"] img, article#news footer
 
 
 
-article#news > aside {
+
+main#blog > article > aside {
 	margin: 0 5%;
 }
 
-article#news > aside > article {
+main#blog > article > aside > article {
 	padding-bottom: .4em;
 	margin-bottom: 2em;
 	border-bottom: 1px ridge #CCC;		
 }
 
-article#news > aside > article:last-child {
+main#blog > article > aside > article:last-child {
 	padding-bottom: 0;
 	margin-bottom: 0;
 	border-bottom: none;		
 }
 
-article#news > aside > article > div {
-	
-}
-
-article#news > aside > article > footer {
+main#blog > article > aside > article > footer {
 	text-align: right;
 }
 
@@ -286,155 +277,24 @@ article#news > aside > article > footer {
 
 
 
-article#news > footer {
-	border-bottom: 1px ridge #CCC;
-}
 
 
 
 
 
 
-article#news {
-}
 
 
 
-article#news > header {
-}
 
-article#news > header > h2 {
-}
 
-article#news > header > div {
-}
 
 
 
-section#news article > footer > span  {
-}
 
-section#news > article > footer > time {
-}
 
 
 
-
-article#news > footer > a {
-}
-
-article#news > footer > a > span {
-}
-
-article#news > footer > span {
-}
-
-article#news > footer > span > span {
-}
-
-article#news > footer > span > span > img {
-}
-
-article#news > footer > span > span > a {
-}
-
-article#news > footer > time {
-}
-
-article#news > footer > span {
-}
-
-article#news > footer > span > span {
-}
-
-article#news > footer > span {
-}
-
-article#news > aside#comment {
-}
-
-article#news > aside#comment > h3 {
-}
-
-article#news > aside#comment > article {
-}
-
-article#news > aside#comment > article > h4 {
-}
-
-article#news > aside#comment > article > h4 > span {
-}
-
-article#news > aside#comment > article > div {
-}
-
-article#news > aside#comment > article > footer {
-}
-
-article#news > aside#comment > article > footer > span {
-}
-
-article#news > aside#comment > article > footer > span > span {
-}
-
-article#news > aside#comment > article > footer > span > span > img {
-}
-
-article#news > aside#comment > article > footer > span > span {
-}
-
-article#news > aside#comment > article > footer > time {
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-section#news > article[itemtype="https://schema.org/BlogPosting"]:last-child {
-	border-bottom: none;
-}
-
-section#news > article > header {
-}
-
-section#news > article > header > h3 {
-	margin: 0;
-}
-
-section#news > article > header > h3 > a {
-	text-decoration: none;
-	color: #800080;
-}
-
-section#news > article > p {
-}
 
 
 
