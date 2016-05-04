@@ -43,6 +43,7 @@ body > main {
 	background-color: #FFF;
 	font-family: sans-serif;
 	padding-bottom: 3em;
+	min-height: 74vh;
 }
 
 body > footer {
