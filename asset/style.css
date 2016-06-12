@@ -47,8 +47,9 @@ body > main {
 }
 
 body > footer {
-	background-color: #FFF;
+	background-color: transparent;
 	text-align: center;
+	padding-top: 1em;
 	padding-bottom: 1em;
 }
 
